@@ -6,4 +6,5 @@ if windoor == doorchoice:
     print('Sorry, but there was a goat in door',doorchoice)
     exit()
 else:
-    print('There was a goat in door' )
+    print('You did not choose the losing door','door',windoor,'and door',doorchoice,'are left.')
+    print('Would you like to switch your door or stay on your current door, door ',doorchoice')
