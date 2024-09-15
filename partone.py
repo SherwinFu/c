@@ -5,9 +5,8 @@ choice = ""
 action = ""
 outcome = ""
 table=[['Round','Choice','Action','Outcome']]
-
-loop= 3
-while loop >0:
+loopcontinue = "y"
+while loopcontinue == "y":
     door1 = 'goat'
     door2 = 'goat'
     door3 = 'goat'
@@ -16,7 +15,6 @@ while loop >0:
     randselect = random.choice(strings)
     globals()[randselect]='car'
     print(door1,door2,door3)
-    loop = loop - 1
 
 
     userselect = str(input(colored('Input door1 to choose Door1, door2 to choose Door2, door3 to choose Door3 or any other key to quit ','yellow')))
@@ -25,9 +23,9 @@ while loop >0:
     if userselect in ("door1", "door2", "door3"):
         print('continue')
     else:
+        loopcontinue = "n"
         print('Thanks for Playing, Good Bye.')
-        exit()
-        
+        break
 
     stringremoved = [s for s in strings if s != userselect]
     goatselect = random.choice(stringremoved)
@@ -63,6 +61,7 @@ while loop >0:
 
 
     else:
+        loopcontinue = "n"
         print('Thanks for Playing, Good Bye.')
 
     listtable=['Round'+str(x),choice,action,outcome]
