@@ -96,3 +96,5 @@ print("Total Wins with Stay =",staywin)
 print("Total Wins with Switch =",switchwin)
 print("PR(Winning with Stay)=",staywinpercent,"%")
 print("PR(Winning with Switch)=",switchwinpercent,"%")
+
+randdoorselect = random.choice(strings)
