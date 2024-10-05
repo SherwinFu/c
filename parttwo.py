@@ -20,8 +20,10 @@ def cpuplay():
     strings2 = ["switch", "stay"]
     randswitchstayselect = random.choice(strings2)
     return randdoorselect, randswitchstayselect
+x = 0
+for _ in range(10000):
+    x = x + 1
 
-for _ in range(50):
     returnedvalues = cpuplay()
     # Initialize doors with goats
     doors = {'door1': 'goat', 'door2': 'goat', 'door3': 'goat'}
@@ -30,14 +32,12 @@ for _ in range(50):
     car_door = random.choice(list(doors.keys()))
     doors[car_door] = 'car'
 
-    cprint(colored(f'Round #{round_number}', 'yellow'))
     round_number = round_number + 1
 
     # Get user's choice
     userselect = (returnedvalues[0])
 
     if userselect not in doors:
-        print('Thanks for Playing, Good Bye.')
         break
 
     # Show a goat behind one of the remaining doors
@@ -49,48 +49,74 @@ for _ in range(50):
         remaining_doors.remove(goat_door)
         goat_door = remaining_doors[0]
 
-    print(colored(f'{goat_door} has a goat behind it.', 'green'))
 
     # Get user's action to stay or switch
     userselect2 = (returnedvalues[1])
 
     if userselect2 == 'switch':
         if doors[userselect] == 'goat':
-            print('You switched... You Win!')
             switchwin += 1
             totalswitch += 1
             outcome = 'win'
         else:
-            print('You switched... You Lose!')
             totalswitch += 1
             outcome = 'lose'
 
     elif userselect2 == 'stay':
         if doors[userselect] == 'car':
-            print('You stayed... You Win!')
             totalstay += 1
             staywin += 1
             outcome = 'win'
         else:
-            print('You stayed... You Lose!')
             totalstay += 1
             outcome = 'lose'
 
     else:
-        print('Thanks for Playing, Good Bye.')
         break
 
     # Record the outcome
     listtable = [f'Round {round_number-1}', userselect, userselect2, outcome]
     table.append(listtable)
 
-# Print the results table
-for row in table:
-    print(row)
 
-# Calculate win percentages
-staywinpercent = (staywin / totalstay * 100) if totalstay > 0 else 0
-switchwinpercent = (switchwin / totalswitch * 100) if totalswitch > 0 else 0
 
-print(f"Total Wins From Staying: {staywinpercent:.2f}%")
-print(f"Total Wins From Switching: {switchwinpercent:.2f}%")
+
+    if x == 50:
+        staywinpercent50 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent50 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+    if x == 100:
+        staywinpercent100 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent100 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+    if x == 500:
+        staywinpercent500 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent500 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+    if x == 1000:
+        staywinpercent1000 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent1000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+    if x == 5000:
+        staywinpercent5000 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent5000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+    if x == 10000:
+        staywinpercent10000 = (staywin / totalstay * 100) if totalstay > 0 else 0
+        switchwinpercent10000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+
+
+
+print(f"Pr(Wins with Staying 50 trials): {staywinpercent50:.2f}%")
+print(f"Pr(Wins with Switching 50 trials): {switchwinpercent50:.2f}%")
+print(f"Pr(Wins with Staying 100 trials): {staywinpercent100:.2f}%")
+print(f"Pr(Wins with Switching 100 trials): {switchwinpercent100:.2f}%")
+print(f"Pr(Wins with Staying 500 trials): {staywinpercent500:.2f}%")
+print(f"Pr(Wins with Switching 500 trials): {switchwinpercent500:.2f}%")
+print(f"Pr(Wins with Staying 1000 trials): {staywinpercent1000:.2f}%")
+print(f"Pr(Wins with Switching 1000 trials): {switchwinpercent1000:.2f}%")
+print(f"Pr(Wins with Staying 5000 trials): {staywinpercent5000:.2f}%")
+print(f"Pr(Wins with Switching 5000 trials): {switchwinpercent1000:.2f}%")
+print(f"Pr(Wins with Staying 10000 trials): {staywinpercent10000:.2f}%")
+print(f"Pr(Wins with Switching 10000 trials): {switchwinpercent10000:.2f}%")
+
+
+
+
+
+
