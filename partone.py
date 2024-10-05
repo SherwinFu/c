@@ -78,6 +78,7 @@ while loop >0:
 
     else:
         print('Thanks for Playing, Good Bye.')
+        break()
 
     listtable=['Round'+str(x),choice,action,outcome]
     table.append(listtable)
@@ -90,9 +91,8 @@ while loop >0:
 
 for row in table:
     print(row)
-staywinpercent = (staywin/totalstay*100)
-switchwinpercent = (switchwin/totalswitch*100)
-print("Total Wins with Stay =",staywin)
-print("Total Wins with Switch =",switchwin)
-print("PR(Winning with Stay)=",staywinpercent,"%")
-print("PR(Winning with Switch)=",switchwinpercent,"%")
+staywinpercent = (staywin / totalstay * 100) if totalstay > 0 else 0
+switchwinpercent = (switchwin / totalswitch * 100) if totalswitch > 0 else 0
+
+print(f"Total Wins From Staying: {staywinpercent:.2f}%")
+print(f"Total Wins From Switching: {switchwinpercent:.2f}%")

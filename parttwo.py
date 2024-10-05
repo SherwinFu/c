@@ -11,7 +11,18 @@ action = ""
 outcome = ""
 table=[['Round','Choice','Action','Outcome']]
 
-loop= 3
+def cpuplay():
+    
+    strings = ["door1", "door2", "door3"]
+
+    randdoorselect = random.choice(strings)
+
+    strings2 = ["switch", "stay"]
+    randswitchstayselect = random.choice(strings2)
+    return randdoorselect, randswitchstayselect
+
+returnedvalues = cpuplay()
+loop= 50
 while loop >0:
     door1 = 'goat'
     door2 = 'goat'
@@ -20,11 +31,12 @@ while loop >0:
     strings = ["door1", "door2", "door3"]
     randselect = random.choice(strings)
     globals()[randselect]='car'
-    loop = loop - 0
+    loop = loop - 1
 
     cprint(colored('Round #'+str(c),'yellow'))
     c = c + 1
-    userselect = str(input(colored('Input door1 to choose Door1, door2 to choose Door2, door3 to choose Door3 or any other key to quit ','yellow')))
+    userselect = returnedvalues[0]
+
     choice = userselect
        
     if userselect in ("door1", "door2", "door3"):
@@ -43,7 +55,10 @@ while loop >0:
     else:
         print(colored({goatselect,globals()[goatselect]},'green'))
             
-    userselect2=input(colored('Stay or Switch, switch to switch, stay to stay, and any other key to quit.','cyan'))
+    userselect2= returnedvalues[0]
+
+    print(returnedvalues[1])
+
     action = userselect2
 
     if userselect2 == 'switch':
