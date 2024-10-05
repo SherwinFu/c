@@ -1,15 +1,15 @@
 from termcolor import cprint, colored
 import random
-staywin = 1
-switchwin = 1
-totalswitch = 1
-totalstay = 1
-x = 1
-c = 1
+
+staywin = 0
+switchwin = 0
+totalswitch = 0
+totalstay = 0
+round_number = 1
 choice = ""
 action = ""
 outcome = ""
-table=[['Round','Choice','Action','Outcome']]
+table = [['Round', 'Choice', 'Action', 'Outcome']]
 
 def cpuplay():
     
@@ -21,95 +21,76 @@ def cpuplay():
     randswitchstayselect = random.choice(strings2)
     return randdoorselect, randswitchstayselect
 
-returnedvalues = cpuplay()
-loop= 50
-while loop >0:
-    door1 = 'goat'
-    door2 = 'goat'
-    door3 = 'goat'
-    
-    strings = ["door1", "door2", "door3"]
-    randselect = random.choice(strings)
-    globals()[randselect]='car'
-    loop = loop - 1
+for _ in range(50):
+    returnedvalues = cpuplay()
+    # Initialize doors with goats
+    doors = {'door1': 'goat', 'door2': 'goat', 'door3': 'goat'}
 
-    cprint(colored('Round #'+str(c),'yellow'))
-    c = c + 1
-    userselect = returnedvalues[0]
+    # Randomly place a car behind one door
+    car_door = random.choice(list(doors.keys()))
+    doors[car_door] = 'car'
 
-    choice = userselect
-       
-    if userselect in ("door1", "door2", "door3"):
-        pass
-    else:
+    cprint(colored(f'Round #{round_number}', 'yellow'))
+    round_number = round_number + 1
+
+    # Get user's choice
+    userselect = (returnedvalues[0])
+
+    if userselect not in doors:
         print('Thanks for Playing, Good Bye.')
-        exit()
-        
+        break
 
-    stringremoved = [s for s in strings if s != userselect]
-    goatselect = random.choice(stringremoved)
-    if globals()[goatselect] == 'car':
-        stringremoved = [s for s in strings if s != goatselect]
-        goatselect = random.choice(stringremoved)
+    # Show a goat behind one of the remaining doors
+    remaining_doors = [door for door in doors if door != userselect]
+    goat_door = random.choice(remaining_doors)
 
-    else:
-        print(colored({goatselect,globals()[goatselect]},'green'))
-            
-    userselect2= returnedvalues[0]
+    if doors[goat_door] == 'car':
+        # If the goat door was the car, choose the other remaining door
+        remaining_doors.remove(goat_door)
+        goat_door = remaining_doors[0]
 
-    print(returnedvalues[1])
+    print(colored(f'{goat_door} has a goat behind it.', 'green'))
 
-    action = userselect2
+    # Get user's action to stay or switch
+    userselect2 = (returnedvalues[1])
 
     if userselect2 == 'switch':
-        if globals()[userselect] == 'goat':
-            print('You switched..... You Win!')
-            switchwin = switchwin + 1
-            totalswitch = totalswitch + 1
+        if doors[userselect] == 'goat':
+            print('You switched... You Win!')
+            switchwin += 1
+            totalswitch += 1
             outcome = 'win'
-            print(' ')
-
         else:
-            print('You Switched..... You Lose!')
-            totalswitch = totalswitch + 1
+            print('You switched... You Lose!')
+            totalswitch += 1
             outcome = 'lose'
-            print(' ')
 
     elif userselect2 == 'stay':
-            stay=print(globals()[userselect])
-            if globals()[userselect] == 'car':
-                print('You Stayed..... You Win!')
-                totalstay = totalstay + 1
-                staywin = staywin + 1
-                outcome = 'win'
-                print(' ')
-
-            else:
-                print('You Stayed..... You Lose!')
-                staywin = staywin + 1
-                outcome = 'lose'
-                print(' ')
-
+        if doors[userselect] == 'car':
+            print('You stayed... You Win!')
+            totalstay += 1
+            staywin += 1
+            outcome = 'win'
+        else:
+            print('You stayed... You Lose!')
+            totalstay += 1
+            outcome = 'lose'
 
     else:
         print('Thanks for Playing, Good Bye.')
+        break
 
-    listtable=['Round'+str(x),choice,action,outcome]
+    # Record the outcome
+    listtable = [f'Round {round_number-1}', userselect, userselect2, outcome]
     table.append(listtable)
-    x = x + 1
 
-
-
-
-
-
+# Print the results table
 for row in table:
     print(row)
-staywinpercent = (staywin/totalstay*100)
-switchwinpercent = (switchwin/totalswitch*100)
-print("Total Wins with Stay =",staywin)
-print("Total Wins with Switch =",switchwin)
-print("PR(Winning with Stay)=",staywinpercent,"%")
-print("PR(Winning with Switch)=",switchwinpercent,"%")
 
-randdoorselect = random.choice(strings)
+# Calculate win percentages
+staywinpercent = (staywin / totalstay * 100) if totalstay > 0 else 0
+switchwinpercent = (switchwin / totalswitch * 100) if totalswitch > 0 else 0
+
+print(f"Total Wins From Staying: {staywinpercent:.2f}%")
+print(f"Total Wins From Switching: {switchwinpercent:.2f}%")
