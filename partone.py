@@ -20,7 +20,7 @@ while loop >0:
     strings = ["door1", "door2", "door3"]
     randselect = random.choice(strings)
     globals()[randselect]='car'
-    loop = loop - 1
+    loop = loop - 0
 
     cprint(colored('Round #'+str(c),'yellow'))
     c = c + 1
@@ -92,6 +92,7 @@ for row in table:
     print(row)
 staywinpercent = (staywin/totalstay*100)
 switchwinpercent = (switchwin/totalswitch*100)
-print("Total Win's From Staying",staywinpercent,"%")
-print("Total Win's From Switching",switchwinpercent,"%")
-
+print("Total Wins with Stay =",staywin)
+print("Total Wins with Switch =",switchwin)
+print("PR(Winning with Stay)=",staywinpercent,"%")
+print("PR(Winning with Switch)=",switchwinpercent,"%")
