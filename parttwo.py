@@ -85,7 +85,7 @@ for _ in range(10000):
         staywinpercent50 = (staywin / totalstay * 100) if totalstay > 0 else 0
         switchwinpercent50 = (switchwin / totalstay * 100) if totalstay > 0 else 0
         for row in table:
-            print(row)     
+            print(row)  
     if x == 100:
         staywinpercent100 = (staywin / totalstay * 100) if totalstay > 0 else 0
         switchwinpercent100 = (switchwin / totalstay * 100) if totalstay > 0 else 0
