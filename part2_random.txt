@@ -1,0 +1,67 @@
+
+['Round', 'Choice', 'Action', 'Outcome']
+['Round 1', 'door3', 'stay', 'lose']
+['Round 2', 'door3', 'stay', 'lose']
+['Round 3', 'door3', 'switch', 'win']
+['Round 4', 'door2', 'stay', 'win']
+['Round 5', 'door1', 'switch', 'win']
+['Round 6', 'door2', 'switch', 'win']
+['Round 7', 'door2', 'switch', 'lose']
+['Round 8', 'door3', 'stay', 'lose']
+['Round 9', 'door1', 'stay', 'win']
+['Round 10', 'door3', 'switch', 'win']
+['Round 11', 'door2', 'switch', 'win']
+['Round 12', 'door3', 'switch', 'win']
+['Round 13', 'door2', 'switch', 'lose']
+['Round 14', 'door3', 'stay', 'lose']
+['Round 15', 'door2', 'stay', 'lose']
+['Round 16', 'door3', 'switch', 'win']
+['Round 17', 'door2', 'switch', 'win']
+['Round 18', 'door3', 'switch', 'win']
+['Round 19', 'door3', 'switch', 'win']
+['Round 20', 'door1', 'stay', 'lose']
+['Round 21', 'door3', 'stay', 'win']
+['Round 22', 'door3', 'switch', 'lose']
+['Round 23', 'door3', 'switch', 'win']
+['Round 24', 'door1', 'stay', 'win']
+['Round 25', 'door2', 'switch', 'win']
+['Round 26', 'door2', 'stay', 'lose']
+['Round 27', 'door1', 'stay', 'win']
+['Round 28', 'door3', 'switch', 'win']
+['Round 29', 'door3', 'switch', 'win']
+['Round 30', 'door2', 'stay', 'lose']
+['Round 31', 'door3', 'switch', 'lose']
+['Round 32', 'door1', 'switch', 'win']
+['Round 33', 'door3', 'stay', 'lose']
+['Round 34', 'door2', 'stay', 'lose']
+['Round 35', 'door1', 'stay', 'lose']
+['Round 36', 'door2', 'switch', 'win']
+['Round 37', 'door2', 'stay', 'lose']
+['Round 38', 'door1', 'stay', 'lose']
+['Round 39', 'door2', 'switch', 'lose']
+['Round 40', 'door1', 'switch', 'win']
+['Round 41', 'door2', 'stay', 'lose']
+['Round 42', 'door3', 'stay', 'win']
+['Round 43', 'door2', 'stay', 'win']
+['Round 44', 'door1', 'stay', 'lose']
+['Round 45', 'door3', 'switch', 'win']
+['Round 46', 'door2', 'switch', 'lose']
+['Round 47', 'door1', 'switch', 'win']
+['Round 48', 'door1', 'switch', 'lose']
+['Round 49', 'door2', 'stay', 'lose']
+['Round 50', 'door1', 'stay', 'lose']
+
+The rest were simulated quietly...
+
+Pr(Wins with Staying 50 trials): 29.17%
+Pr(Wins with Switching 50 trials): 79.17%
+Pr(Wins with Staying 100 trials): 34.04%
+Pr(Wins with Switching 100 trials): 80.85%
+Pr(Wins with Staying 500 trials): 30.08%
+Pr(Wins with Switching 500 trials): 67.07%
+Pr(Wins with Staying 1000 trials): 31.06%
+Pr(Wins with Switching 1000 trials): 66.33%
+Pr(Wins with Staying 5000 trials): 34.03%
+Pr(Wins with Switching 5000 trials): 66.33%
+Pr(Wins with Staying 10000 trials): 33.28%
+Pr(Wins with Switching 10000 trials): 66.50%
