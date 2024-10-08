@@ -51,7 +51,7 @@ for _ in range(10000):
 
 
     # Get user's action to stay or switch
-    userselect2 = (returnedvalues[1])
+    userselect2 = "switch"
 
     if userselect2 == 'switch':
         if doors[userselect] == 'goat':
@@ -80,45 +80,21 @@ for _ in range(10000):
 
 
 
-
-    if x == 50:
-        staywinpercent50 = (staywin / totalstay * 100) if totalstay > 0 else 0
-        switchwinpercent50 = (switchwin / totalstay * 100) if totalstay > 0 else 0
-        for row in table:
-            print(row)     
-    if x == 100:
-        staywinpercent100 = (staywin / totalstay * 100) if totalstay > 0 else 0
-        switchwinpercent100 = (switchwin / totalstay * 100) if totalstay > 0 else 0
-    if x == 500:
-        staywinpercent500 = (staywin / totalstay * 100) if totalstay > 0 else 0
-        switchwinpercent500 = (switchwin / totalstay * 100) if totalstay > 0 else 0
     if x == 1000:
         staywinpercent1000 = (staywin / totalstay * 100) if totalstay > 0 else 0
         switchwinpercent1000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
-    if x == 5000:
-        staywinpercent5000 = (staywin / totalstay * 100) if totalstay > 0 else 0
-        switchwinpercent5000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
-    if x == 10000:
-        staywinpercent10000 = (staywin / totalstay * 100) if totalstay > 0 else 0
-        switchwinpercent10000 = (switchwin / totalstay * 100) if totalstay > 0 else 0
+        for row in table:
+            print(row) 
+
   
 
 print('')
 print('The rest were simulated quietly...')
 print('')
 
-print(colored(f"Pr(Wins with Staying 50 trials): {staywinpercent50:.2f}%","green"))
-print(colored(f"Pr(Wins with Switching 50 trials): {switchwinpercent50:.2f}%","light_red"))
-print(colored(f"Pr(Wins with Staying 100 trials): {staywinpercent100:.2f}%","green"))
-print(colored(f"Pr(Wins with Switching 100 trials): {switchwinpercent100:.2f}%","light_red"))
-print(colored(f"Pr(Wins with Staying 500 trials): {staywinpercent500:.2f}%","green"))
-print(colored(f"Pr(Wins with Switching 500 trials): {switchwinpercent500:.2f}%","light_red"))
-print(colored(f"Pr(Wins with Staying 1000 trials): {staywinpercent1000:.2f}%","green"))
+
 print(colored(f"Pr(Wins with Switching 1000 trials): {switchwinpercent1000:.2f}%","light_red"))
-print(colored(f"Pr(Wins with Staying 5000 trials): {staywinpercent5000:.2f}%","green"))
-print(colored(f"Pr(Wins with Switching 5000 trials): {switchwinpercent1000:.2f}%","light_red"))
-print(colored(f"Pr(Wins with Staying 10000 trials): {staywinpercent10000:.2f}%","green"))
-print(colored(f"Pr(Wins with Switching 10000 trials): {switchwinpercent10000:.2f}%","light_red"))
+
 
 
 
